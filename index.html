@@ -259,7 +259,7 @@
       position: relative;
       background: var(--card-bg);
       border: 1px solid var(--rule);
-      border-radius: 2px;
+      border-radius: 6px;
       max-width: 300px;
       min-width: 100px;
       overflow-x: hidden;
@@ -271,7 +271,7 @@
     *{
       box-sizing: border-box;
     }
-    .photo-inner::before {
+    .photo-about::before {
       content: '';
       position: absolute;
       top: 10px; right: 10px;
@@ -279,7 +279,7 @@
       border-top: 3px solid var(--accent);
       border-right: 3px solid var(--accent);
     }
-    .photo-inner::after {
+    .photo-about::after {
       content: '';
       position: absolute;
       bottom: 10px; left: 10px;
@@ -312,6 +312,7 @@
       opacity: 0.75;
       transition: opacity ease 0.25s;
       cursor: pointer;
+      overflow-anchor: none;
     }
     .photo-slider a:hover{
       opacity: 1;
@@ -523,9 +524,9 @@
 
       <div class="about-photo">
         <div class="photo-inner">
-          <img src="hot1.jpeg" class="photo-about" id="photo-1">
-          <img src="ngawi.jpeg" class="photo-about" id="photo-2">
-          <img src="hot2.jpeg" class="photo-about" id="photo-3">
+          <img src="gaming.jpg" class="photo-about" id="photo-1">
+          <img src="wolf.jpeg" class="photo-about" id="photo-2">
+          <img src="furina.jpg" class="photo-about" id="photo-3">
         </div>
 
           <div class="photo-slider">
@@ -627,4 +628,5 @@
   </footer>
 
 </body>
+
 </html>
