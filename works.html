@@ -646,7 +646,14 @@
       .portfolio-grid { grid-template-columns: 1fr; }
       .project-card.featured { grid-column: span 1; }
       .project-card.featured .project-thumb { aspect-ratio: 4/3; }
-      .nav-links { display: none; }
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-size: 11px;
+        transition: font-size 0.1s;
+      }
     }
   </style>
 </head>
