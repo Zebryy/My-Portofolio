@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Works — DKV Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Serif+Display:ital@0;1&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --white:   #FAFAF8;
+      --ink:     #1C1C1E;
+      --muted:   #6B6B6B;
+      --rule:    #E2E2DF;
+      --accent:  #D4501A;
+      --accent2: #2B5BA8;
+      --card-bg: #F4F3EF;
+      --pixel-font: 'Press Start 2P', monospace;
+      --serif:   'DM Serif Display', serif;
+      --sans:    'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--white); }
+    ::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+      background: rgba(250, 250, 248, 0.90);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-logo {
+      font-family: var(--pixel-font);
+      font-size: 9px;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
+
+    /* ── Page Header Banner ── */
+    .page-header {
+      padding: 120px 56px 64px;
+      border-bottom: 1px solid var(--rule);
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle pixel grid background */
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(212,80,26,0.04) 0px, rgba(212,80,26,0.04) 1px, transparent 1px, transparent 32px),
+        repeating-linear-gradient(90deg, rgba(212,80,26,0.04) 0px, rgba(212,80,26,0.04) 1px, transparent 1px, transparent 32px);
+      pointer-events: none;
+    }
+
+    .page-header-inner {
+      position: relative;
+      max-width: 800px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-label {
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .page-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .page-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 500px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* ── Main content ── */
+    main {
+      padding: 60px 56px;
+    }
+
+    /* ── Filter ── */
+    .portfolio-filter {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-family: var(--pixel-font);
+      font-size: 6px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-right: 8px;
+    }
+
+    .filter-btn {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 18px;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.18s;
+      letter-spacing: 0.03em;
+      font-family: var(--sans);
+    }
+    .filter-btn:hover { background: var(--card-bg); color: var(--ink); border-color: #ccc; }
+    .filter-btn.active {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    /* ── Portfolio Grid ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.22s, box-shadow 0.22s;
+      cursor: pointer;
+      animation: fadeUp 0.5s ease both;
+    }
+    .project-card:nth-child(1) { animation-delay: 0.05s; }
+    .project-card:nth-child(2) { animation-delay: 0.10s; }
+    .project-card:nth-child(3) { animation-delay: 0.15s; }
+    .project-card:nth-child(4) { animation-delay: 0.20s; }
+    .project-card:nth-child(5) { animation-delay: 0.25s; }
+    .project-card:nth-child(6) { animation-delay: 0.30s; }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+    }
+
+    .project-thumb {
+      aspect-ratio: 4/3;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-thumb-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    /* pixel grid texture */
+    .project-thumb-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 8px);
+    }
+
+    .thumb-label {
+      font-family: var(--pixel-font);
+      font-size: 6px;
+      color: rgba(255,255,255,0.40);
+      letter-spacing: 0.12em;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* Hover reveal overlay */
+    .project-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(28,28,30,0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s;
+      z-index: 2;
+    }
+    .project-card:hover .project-thumb-overlay { opacity: 1; }
+
+    .overlay-btn {
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 10px 16px;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    .overlay-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+    .project-info { padding: 20px 20px 22px; }
+
+    .project-tag {
+      font-family: var(--pixel-font);
+      font-size: 6px;
+      color: var(--accent);
+      letter-spacing: 0.10em;
+      margin-bottom: 8px;
+    }
+
+    .project-info h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .project-info p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .project-meta span {
+      font-size: 11px;
+      color: #aaa;
+      font-weight: 400;
+    }
+    .project-meta span::before {
+      content: '· ';
+    }
+    .project-meta span:first-child::before { content: ''; }
+
+    /* ── Featured / Wide card ── */
+    .project-card.featured {
+      grid-column: span 2;
+    }
+    .project-card.featured .project-thumb {
+      aspect-ratio: 16/7;
+    }
+
+    /* Thumb color variants */
+    .t1 { background: linear-gradient(135deg, #2B3A5C, #1C1C2E); }
+    .t2 { background: linear-gradient(135deg, #5C2B2B, #2E1A1A); }
+    .t3 { background: linear-gradient(135deg, #2B4A2B, #1A2E1A); }
+    .t4 { background: linear-gradient(135deg, #4A3A1A, #2E2A0E); }
+    .t5 { background: linear-gradient(135deg, #3A1A4A, #1E0E2E); }
+    .t6 { background: linear-gradient(135deg, #1A3A4A, #0E1E2E); }
+    .t7 { background: linear-gradient(135deg, #4A2B3A, #2E1A22); }
+
+    /* ── Count bar ── */
+    .count-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .count-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .count-text strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ── Contact Footer ── */
+    #contact {
+      background: var(--ink);
+      color: var(--white);
+      padding: 80px 56px;
+    }
+
+    .section-label {
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .section-rule {
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 40px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 900px;
+    }
+
+    .contact-desc {
+      font-size: 15px;
+      color: rgba(250,250,248,0.65);
+      line-height: 1.8;
+      max-width: 360px;
+    }
+
+    .contact-links { display: flex; flex-direction: column; gap: 16px; }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: rgba(250,250,248,0.75);
+      font-size: 14px;
+      font-weight: 500;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--white); }
+
+    .contact-link-icon {
+      font-family: var(--pixel-font);
+      font-size: 8px;
+      color: var(--accent);
+      min-width: 24px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 24px 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy { font-size: 12px; color: rgba(250,250,248,0.35); }
+    .footer-pixel { font-family: var(--pixel-font); font-size: 6px; color: rgba(250,250,248,0.20); letter-spacing: 0.08em; }
+
+    /* ── Hidden card state ── */
+    .project-card.hidden {
+      display: none;
+    }
+
+    /* ── Modal ── */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(20, 20, 22, 0.82);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      width: 100%;
+      max-width: 820px;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: translateY(18px);
+      transition: transform 0.28s cubic-bezier(.4,0,.2,1);
+      position: relative;
+    }
+
+    .modal-backdrop.open .modal {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: var(--white);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      color: var(--muted);
+      z-index: 10;
+      transition: background 0.15s, color 0.15s;
+    }
+    .modal-close:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    .modal-thumb {
+      aspect-ratio: 16/7;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-thumb-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .modal-thumb-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 8px);
+    }
+
+    .modal-thumb-label {
+      font-family: var(--pixel-font);
+      font-size: 6px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.12em;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      line-height: 2.4;
+    }
+
+    .modal-body {
+      padding: 32px 36px 40px;
+    }
+
+    .modal-tag {
+      font-family: var(--pixel-font);
+      font-size: 6px;
+      color: var(--accent);
+      letter-spacing: 0.10em;
+      margin-bottom: 10px;
+    }
+
+    .modal-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3.5vw, 32px);
+      line-height: 1.1;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .modal-meta {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .modal-meta span {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .modal-meta span::before { content: '· '; }
+    .modal-meta span:first-child::before { content: ''; }
+
+    .modal-rule {
+      height: 1px;
+      background: var(--rule);
+      margin-bottom: 22px;
+    }
+
+    .modal-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      max-width: 600px;
+    }
+
+    .modal-section-label {
+      font-family: var(--pixel-font);
+      font-size: 6px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .modal-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .modal-tool-chip {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      background: var(--card-bg);
+      color: var(--ink);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .modal-btn {
+      font-family: var(--pixel-font);
+      font-size: 7px;
+      padding: 10px 18px;
+      border-radius: 2px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: all 0.15s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .modal-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+    .modal-btn.outline {
+      background: transparent;
+      color: var(--ink);
+    }
+    .modal-btn.outline:hover { background: var(--card-bg); border-color: var(--muted); color: var(--ink); }
+
+    /* Scrollbar inside modal */
+    .modal::-webkit-scrollbar { width: 4px; }
+    .modal::-webkit-scrollbar-track { background: transparent; }
+    .modal::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-card.featured { grid-column: span 2; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .page-header { padding: 100px 24px 48px; }
+      main { padding: 48px 24px; }
+      #contact { padding: 64px 24px; }
+      footer { padding: 20px 24px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+      .project-card.featured .project-thumb { aspect-ratio: 4/3; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <a href="index.html" class="nav-logo">YOUR<span>.</span>NAME<br>PORTFOLIO</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="works.html" class="active">Works</a></li>
+      <li><a href="works.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── Page Header ── -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="page-label">// SELECTED WORKS</span>
+      <h1 class="page-title">Portfolio</h1>
+      <p class="page-sub">A collection of branding, illustration, UI/UX, and motion projects — each one a different problem solved through design.</p>
+    </div>
+  </header>
+
+  <!-- ── Main Portfolio ── -->
+  <main>
+    <div class="portfolio-filter">
+      <span class="filter-label">FILTER:</span>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="branding">Branding</button>
+      <button class="filter-btn" data-filter="illustration">Illustration</button>
+      <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
+      <button class="filter-btn" data-filter="motion">Motion</button>
+      <button class="filter-btn" data-filter="typography">Typography</button>
+    </div>
+
+    <div class="count-bar">
+      <span class="count-text">Showing <strong id="count">7</strong> projects</span>
+    </div>
+
+    <div class="portfolio-grid" id="grid">
+
+      <!-- Featured -->
+      <div class="project-card featured" data-category="branding"
+        data-title="Brand Identity — Kopi Nusantara"
+        data-tag="BRANDING · FEATURED"
+        data-year="2024" data-type="Branding" data-extra="Packaging"
+        data-tools="Adobe Illustrator,Adobe Photoshop,InDesign"
+        data-desc="Full visual identity for a local Indonesian coffee brand. From mark creation to packaging design and brand guidelines. The brief called for something rooted in local heritage while being modern enough for specialty café shelves. Replace this with your own project write-up — the challenge, your process, and the outcome."
+        data-thumb="t1"
+        data-link="#">
+        <div class="project-thumb">
+          <div class="project-thumb-bg t1"></div>
+          <div class="project-thumb-overlay">
+            <button class="overlay-btn">VIEW PROJECT</button>
+          </div>
+          <span class="thumb-label">PROJECT THUMBNAIL<br>— REPLACE WITH IMAGE —</span>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">BRANDING · FEATURED</div>
+          <h3>Brand Identity — Kopi Nusantara</h3>
+          <p>Full visual identity for a local Indonesian coffee brand. From mark creation to packaging design and brand guidelines.</p>
+          <div class="project-meta">
+            <span>2024</span>
+            <span>Branding</span>
+            <span>Packaging</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="illustration"
+        data-title="Editorial Series — Budaya Lokal"
+        data-tag="ILLUSTRATION"
+        data-year="2024" data-type="Editorial" data-extra=""
+        data-tools="Procreate,Adobe Photoshop"
+        data-desc="A series of editorial illustrations exploring Indonesian cultural narratives. Each piece was created to accompany a written essay, balancing visual storytelling with typographic integration. Replace this with your own project write-up."
+        data-thumb="t2"
+        data-link="#">
+        <div class="project-thumb">
+          <div class="project-thumb-bg t2"></div>
+          <div class="project-thumb-overlay">
+            <button class="overlay-btn">VIEW PROJECT</button>
+          </div>
+          <span class="thumb-label">PROJECT THUMBNAIL</span>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">ILLUSTRATION</div>
+          <h3>Editorial Series — Budaya Lokal</h3>
+          <p>A series of editorial illustrations exploring Indonesian cultural narratives.</p>
+          <div class="project-meta">
+            <span>2024</span>
+            <span>Editorial</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="ui-ux"
+        data-title="App Design — Pasar Digital"
+        data-tag="UI/UX"
+        data-year="2024" data-type="Mobile" data-extra=""
+        data-tools="Figma,Adobe Illustrator"
+        data-desc="Mobile marketplace UI for local artisans and craft sellers. The goal was to make listing and discovering handmade goods feel as easy as a social feed. Replace this with your own project write-up."
+        data-thumb="t3"
+        data-link="#">
+        <div class="project-thumb">
+          <div class="project-thumb-bg t3"></div>
+          <div class="project-thumb-overlay">
+            <button class="overlay-btn">VIEW PROJECT</button>
+          </div>
+          <span class="thumb-label">PROJECT THUMBNAIL</span>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">UI/UX</div>
+          <h3>App Design — Pasar Digital</h3>
+          <p>Mobile marketplace UI for local artisans and craft sellers.</p>
+          <div class="project-meta">
+            <span>2024</span>
+            <span>Mobile</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="typography"
+        data-title="Type Poster Series"
+        data-tag="TYPOGRAPHY"
+        data-year="2023" data-type="Print" data-extra=""
+        data-tools="Adobe Illustrator,InDesign"
+        data-desc="Experimental typographic posters exploring the aesthetics of Bahasa Indonesia. Each poster focused on a single word or phrase, treated as a visual object rather than just text. Replace this with your own project write-up."
+        data-thumb="t4"
+        data-link="#">
+        <div class="project-thumb">
+          <div class="project-thumb-bg t4"></div>
+          <div class="project-thumb-overlay">
+            <button class="overlay-btn">VIEW PROJECT</button>
+          </div>
+          <span class="thumb-label">PROJECT THUMBNAIL</span>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">TYPOGRAPHY</div>
+          <h3>Type Poster Series</h3>
+          <p>Experimental typographic posters exploring the aesthetics of Bahasa Indonesia.</p>
+          <div class="project-meta">
+            <span>2023</span>
+            <span>Print</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="motion"
+        data-title="Motion Reel — 2024"
+        data-tag="MOTION"
+        data-year="2024" data-type="After Effects" data-extra=""
+        data-tools="After Effects,Premiere Pro,Illustrator"
+        data-desc="Annual showreel featuring animated titles, transitions, and brand spots. This reel documents a year of motion work — from small UI animations to full broadcast-style sequences. Replace this with your own project write-up."
+        data-thumb="t5"
+        data-link="#">
+        <div class="project-thumb">
+          <div class="project-thumb-bg t5"></div>
+          <div class="project-thumb-overlay">
+            <button class="overlay-btn">VIEW PROJECT</button>
+          </div>
+          <span class="thumb-label">PROJECT THUMBNAIL</span>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">MOTION</div>
+          <h3>Motion Reel — 2024</h3>
+          <p>Annual showreel featuring animated titles, transitions, and brand spots.</p>
+          <div class="project-meta">
+            <span>2024</span>
+            <span>After Effects</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="branding"
+        data-title="Social Campaign — Alam Hijau"
+        data-tag="BRANDING"
+        data-year="2023" data-type="Social Media" data-extra=""
+        data-tools="Adobe Photoshop,Illustrator,Canva"
+        data-desc="Environmental awareness campaign for a local NGO, spanning print and digital channels. The visual language used organic shapes and earthy tones to reinforce the environmental message. Replace this with your own project write-up."
+        data-thumb="t6"
+        data-link="#">
+        <div class="project-thumb">
+          <div class="project-thumb-bg t5"></div>
+          <div class="project-thumb-overlay">
+            <button class="overlay-btn">VIEW PROJECT</button>
+          </div>
+          <span class="thumb-label">PROJECT THUMBNAIL</span>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">BRANDING</div>
+          <h3>Social Campaign — Alam Hijau</h3>
+          <p>Environmental awareness campaign for a local NGO, print and digital.</p>
+          <div class="project-meta">
+            <span>2023</span>
+            <span>Social Media</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="illustration"
+        data-title="Character Design — Cerita Rakyat"
+        data-tag="ILLUSTRATION"
+        data-year="2023" data-type="Character" data-extra=""
+        data-tools="Procreate,Adobe Photoshop"
+        data-desc="Character design series based on Indonesian folklore and mythology. Each character was researched and illustrated to capture the spirit of the original legend while having a fresh, contemporary visual style. Replace this with your own project write-up."
+        data-thumb="t7"
+        data-link="#">
+        <div class="project-thumb">
+          <div class="project-thumb-bg t5"></div>
+          <div class="project-thumb-overlay">
+            <button class="overlay-btn">VIEW PROJECT</button>
+          </div>
+          <span class="thumb-label">PROJECT THUMBNAIL</span>
+        </div>
+        <div class="project-info">
+          <div class="project-tag">ILLUSTRATION</div>
+          <h3>Character Design — Cerita Rakyat</h3>
+          <p>Character design series based on Indonesian folklore and mythology.</p>
+          <div class="project-meta">
+            <span>2023</span>
+            <span>Character</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="section-label">// GET IN TOUCH</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <div class="section-rule"></div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-desc">Open to freelance projects, collaborations, and internship opportunities. Feel free to reach out — let's make something great.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:hello@yourname.com" class="contact-link">
+          <span class="contact-link-icon">@</span>hello@yourname.com
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">IG</span>@yourinstagram
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">BE</span>Behance.net/yourname
+        </a>
+        <a href="#" class="contact-link">
+          <span class="contact-link-icon">LI</span>LinkedIn Profile
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <span class="footer-copy">© 2025 Your Name — DKV Portfolio</span>
+    <span class="footer-pixel">MADE WITH ♥ IN INDONESIA</span>
+  </footer>
+
+  <!-- ── Modal ── -->
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Project detail">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-thumb" id="modalThumb">
+        <div class="modal-thumb-bg" id="modalThumbBg"></div>
+        <span class="modal-thumb-label" id="modalThumbLabel">PROJECT THUMBNAIL<br>— REPLACE WITH IMAGE —</span>
+      </div>
+      <div class="modal-body">
+        <div class="modal-tag" id="modalTag"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <div class="modal-meta" id="modalMeta"></div>
+        <div class="modal-rule"></div>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-section-label">TOOLS USED</div>
+        <div class="modal-tools" id="modalTools"></div>
+        <div class="modal-actions">
+          <a href="#" class="modal-btn" id="modalLink" target="_blank">VIEW LIVE / BEHANCE</a>
+          <button class="modal-btn outline" id="modalCloseBtn">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── JS ── -->
+  <script>
+    /* ── Filter ── */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards      = document.querySelectorAll('.project-card');
+    const countEl    = document.getElementById('count');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        let visible  = 0;
+        cards.forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        countEl.textContent = visible;
+      });
+    });
+
+    /* ── Modal ── */
+    const backdrop    = document.getElementById('modalBackdrop');
+    const modal       = document.getElementById('modal');
+    const closeBtn    = document.getElementById('modalClose');
+    const closeBtnBot = document.getElementById('modalCloseBtn');
+
+    function openModal(card) {
+      // Populate fields from data attributes
+      document.getElementById('modalTag').textContent   = card.dataset.tag   || '';
+      document.getElementById('modalTitle').textContent = card.dataset.title  || '';
+      document.getElementById('modalDesc').textContent  = card.dataset.desc   || '';
+
+      // Thumb color class
+      const thumbBg = document.getElementById('modalThumbBg');
+      thumbBg.className = 'modal-thumb-bg ' + (card.dataset.thumb || '');
+
+      // Meta chips (year, type, extra)
+      const metaEl = document.getElementById('modalMeta');
+      metaEl.innerHTML = '';
+      [card.dataset.year, card.dataset.type, card.dataset.extra]
+        .filter(Boolean)
+        .forEach(val => {
+          const s = document.createElement('span');
+          s.textContent = val;
+          metaEl.appendChild(s);
+        });
+
+      // Tools
+      const toolsEl = document.getElementById('modalTools');
+      toolsEl.innerHTML = '';
+      (card.dataset.tools || '').split(',').filter(Boolean).forEach(tool => {
+        const chip = document.createElement('span');
+        chip.className = 'modal-tool-chip';
+        chip.textContent = tool.trim();
+        toolsEl.appendChild(chip);
+      });
+
+      // Link
+      const link = document.getElementById('modalLink');
+      const href = card.dataset.link || '#';
+      link.href = href;
+      // Dim the button if no real link yet
+      link.style.opacity = (href === '#') ? '0.4' : '1';
+      link.style.pointerEvents = (href === '#') ? 'none' : 'all';
+      link.title = (href === '#') ? 'Link belum ditambahkan' : '';
+
+      // Open
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Wire overlay buttons on each card
+    cards.forEach(card => {
+      const btn = card.querySelector('.overlay-btn');
+      if (btn) btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openModal(card);
+      });
+      // Also allow clicking the card info area
+      card.addEventListener('click', () => openModal(card));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    closeBtnBot.addEventListener('click', closeModal);
+
+    // Close on backdrop click (outside the modal box)
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && backdrop.classList.contains('open')) closeModal();
+    });
+  </script>
+
+</body>
+</html>
