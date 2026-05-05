@@ -325,14 +325,19 @@
     }
 
     /* Thumb color variants */
-    .t1 { background: linear-gradient(135deg, #2B3A5C, #1C1C2E); }
-    .t2 { background: linear-gradient(135deg, #5C2B2B, #2E1A1A); }
-    .t3 { background: linear-gradient(135deg, #2B4A2B, #1A2E1A); }
-    .t4 { background: linear-gradient(135deg, #4A3A1A, #2E2A0E); }
-    .t5 { background: linear-gradient(135deg, #3A1A4A, #1E0E2E); }
-    .t6 { background: linear-gradient(135deg, #1A3A4A, #0E1E2E); }
-    .t7 { background: linear-gradient(135deg, #4A2B3A, #2E1A22); }
+.t1, .t2, .t3, .t4, .t5, .t6 {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
+.t1 { background-image: url(coffe.svg); background-color: #1f3d34; }
+.t2 { background-image: url(Bossa\ Nova.png); background-color: #033a18; }
+.t3 { background-image: url(web.PNG); background-color: #033a18; }
+.t4 { background-image: url(raman.png); background-color: white;}
+.t5 { background-image: url(Logo\ Bimbel\ Bazil\ Final\ 2.png); background-color: white;}
+.t6 { background: linear-gradient(135deg, #1A3A4A, #0E1E2E); }
+.t7 { background: linear-gradient(135deg, #4A2B3A, #2E1A22); }
     /* ── Count bar ── */
     .count-bar {
       display: flex;
@@ -661,7 +666,7 @@
 
   <!-- ── Navigation ── -->
   <nav>
-    <a href="index.html" class="nav-logo">YOUR<span>.</span>NAME<br>PORTFOLIO</a>
+    <a href="index.html" class="nav-logo">TEAM<br>DKV<span>-</span>HOLIC</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="index.html#about">About</a></li>
@@ -689,7 +694,7 @@
       <button class="filter-btn" data-filter="illustration">Illustration</button>
       <button class="filter-btn" data-filter="ui-ux">UI/UX</button>
       <button class="filter-btn" data-filter="motion">Motion</button>
-      <button class="filter-btn" data-filter="typography">Typography</button>
+      <button class="filter-btn" data-filter="poster">Poster</button>
     </div>
 
     <div class="count-bar">
@@ -700,24 +705,24 @@
 
       <!-- Featured -->
       <div class="project-card featured" data-category="branding"
-        data-title="Brand Identity — Kopi Nusantara"
+        data-title="Identitas Brand — Kopi Nusantara"
         data-tag="BRANDING · FEATURED"
         data-year="2024" data-type="Branding" data-extra="Packaging"
-        data-tools="Adobe Illustrator,Adobe Photoshop,InDesign"
-        data-desc="Full visual identity for a local Indonesian coffee brand. From mark creation to packaging design and brand guidelines. The brief called for something rooted in local heritage while being modern enough for specialty café shelves. Replace this with your own project write-up — the challenge, your process, and the outcome."
+        data-tools="Adobe Illustrator"
+        data-desc="Visual identitas yang mencakupi untuk brand kopi lokal Indonesia. Dari pembuatan desain lalu ke packaging desain. Dibuat dengan unsur budaya lokal tetapi memiliki unsur yang modern untuk menarik para remaja untuk pergi ke toko kopi lokal ini. Desain logo in simple sehingga bisa terlihat lebih modern"
         data-thumb="t1"
         data-link="#">
         <div class="project-thumb">
-          <div class="project-thumb-bg t1"></div>
+          <div class="project-thumb-bg t1">
+          </div>
           <div class="project-thumb-overlay">
             <button class="overlay-btn">VIEW PROJECT</button>
           </div>
-          <span class="thumb-label">PROJECT THUMBNAIL<br>— REPLACE WITH IMAGE —</span>
         </div>
         <div class="project-info">
           <div class="project-tag">BRANDING · FEATURED</div>
-          <h3>Brand Identity — Kopi Nusantara</h3>
-          <p>Full visual identity for a local Indonesian coffee brand. From mark creation to packaging design and brand guidelines.</p>
+          <h3>Identitas Brand — Kopi Nusantara</h3>
+          <p>Visual identitas yang mencakupi untuk brand kopi lokal Indonesia. Dari pembuatan desain lalu ke packaging desain.</p>
           <div class="project-meta">
             <span>2024</span>
             <span>Branding</span>
@@ -726,12 +731,12 @@
         </div>
       </div>
 
-      <div class="project-card" data-category="illustration"
-        data-title="Editorial Series — Budaya Lokal"
-        data-tag="ILLUSTRATION"
-        data-year="2024" data-type="Editorial" data-extra=""
-        data-tools="Procreate,Adobe Photoshop"
-        data-desc="A series of editorial illustrations exploring Indonesian cultural narratives. Each piece was created to accompany a written essay, balancing visual storytelling with typographic integration. Replace this with your own project write-up."
+      <div class="project-card" data-category="poster"
+        data-title="Poster Bossa Nova - Joao Gilberto"
+        data-tag="POSTER"
+        data-year="2025" data-type="Advertising" data-extra="Flyer"
+        data-tools="Adobe Photoshop"
+        data-desc="Poster / Flyer untuk memasarkan dan meramaikan musik tipe bossa nova kepada massa Indonesia. Bertujuan untuk memperkenalkan musik bossa nova / Brazil kepada orang Indonesia umum"
         data-thumb="t2"
         data-link="#">
         <div class="project-thumb">
@@ -739,15 +744,15 @@
           <div class="project-thumb-overlay">
             <button class="overlay-btn">VIEW PROJECT</button>
           </div>
-          <span class="thumb-label">PROJECT THUMBNAIL</span>
+          <span class="thumb-label"></span>
         </div>
         <div class="project-info">
-          <div class="project-tag">ILLUSTRATION</div>
-          <h3>Editorial Series — Budaya Lokal</h3>
-          <p>A series of editorial illustrations exploring Indonesian cultural narratives.</p>
+          <div class="project-tag">POSTER</div>
+          <h3>Poster Bossa Nova - Joao Gilberto</h3>
+          <p>Poster / Flyer untuk memasarkan dan meramaikan musik tipe bossa nova kepada massa Indonesia.</p>
           <div class="project-meta">
-            <span>2024</span>
-            <span>Editorial</span>
+            <span>2025</span>
+            <span>Advertising</span>
           </div>
         </div>
       </div>
@@ -765,7 +770,7 @@
           <div class="project-thumb-overlay">
             <button class="overlay-btn">VIEW PROJECT</button>
           </div>
-          <span class="thumb-label">PROJECT THUMBNAIL</span>
+          <span class="thumb-label"></span>
         </div>
         <div class="project-info">
           <div class="project-tag">UI/UX</div>
@@ -778,7 +783,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-category="typography"
+      <div class="project-card" data-category="poster"
         data-title="Type Poster Series"
         data-tag="TYPOGRAPHY"
         data-year="2023" data-type="Print" data-extra=""
@@ -791,7 +796,7 @@
           <div class="project-thumb-overlay">
             <button class="overlay-btn">VIEW PROJECT</button>
           </div>
-          <span class="thumb-label">PROJECT THUMBNAIL</span>
+          <span class="thumb-label"></span>
         </div>
         <div class="project-info">
           <div class="project-tag">TYPOGRAPHY</div>
@@ -817,7 +822,7 @@
           <div class="project-thumb-overlay">
             <button class="overlay-btn">VIEW PROJECT</button>
           </div>
-          <span class="thumb-label">PROJECT THUMBNAIL</span>
+          <span class="thumb-label"></span>
         </div>
         <div class="project-info">
           <div class="project-tag">MOTION</div>
@@ -839,11 +844,11 @@
         data-thumb="t6"
         data-link="#">
         <div class="project-thumb">
-          <div class="project-thumb-bg t5"></div>
+          <div class="project-thumb-bg t6"></div>
           <div class="project-thumb-overlay">
             <button class="overlay-btn">VIEW PROJECT</button>
           </div>
-          <span class="thumb-label">PROJECT THUMBNAIL</span>
+          <span class="thumb-label"></span>
         </div>
         <div class="project-info">
           <div class="project-tag">BRANDING</div>
@@ -865,11 +870,11 @@
         data-thumb="t7"
         data-link="#">
         <div class="project-thumb">
-          <div class="project-thumb-bg t5"></div>
+          <div class="project-thumb-bg t7"></div>
           <div class="project-thumb-overlay">
             <button class="overlay-btn">VIEW PROJECT</button>
           </div>
-          <span class="thumb-label">PROJECT THUMBNAIL</span>
+          <span class="thumb-label"></span>
         </div>
         <div class="project-info">
           <div class="project-tag">ILLUSTRATION</div>
@@ -913,7 +918,7 @@
 
   <!-- ── Footer ── -->
   <footer>
-    <span class="footer-copy">© 2025 Your Name — DKV Portfolio</span>
+    <span class="footer-copy">© 2026 Team DKV-Holic — Portfolio</span>
     <span class="footer-pixel">MADE WITH ♥ IN INDONESIA</span>
   </footer>
 
@@ -923,7 +928,7 @@
       <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
       <div class="modal-thumb" id="modalThumb">
         <div class="modal-thumb-bg" id="modalThumbBg"></div>
-        <span class="modal-thumb-label" id="modalThumbLabel">PROJECT THUMBNAIL<br>— REPLACE WITH IMAGE —</span>
+
       </div>
       <div class="modal-body">
         <div class="modal-tag" id="modalTag"></div>
