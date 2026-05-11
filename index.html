@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio — DKV</title>
+  <link rel="icon" type="image/png" href="logo-2.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Serif+Display:ital@0;1&family=Press+Start+2P&display=swap" rel="stylesheet" />
@@ -237,6 +238,17 @@
       grid-template-columns: 1fr 1fr;
       align-items: center;
       max-width: 1100px;
+    }
+    .about-info{
+      display: flex;
+      column-gap: 1rem;
+      position: absolute;
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      font-size: 12px;
+      color: var(--muted);
     }
 
     .about-text p {
@@ -524,16 +536,18 @@
 
       <div class="about-photo">
         <div class="photo-inner">
-          <img src="gaming.jpg" class="photo-about" id="photo-1">
-          <img src="wolf.jpeg" class="photo-about" id="photo-2">
-          <img src="furina.jpg" class="photo-about" id="photo-3">
+          <img src="coffe.svg" class="photo-about" id="photo-1">
+          <img src="okay.jpeg" class="photo-about" id="photo-2">
+          <img src="Logo Bimbel Bazil Final 2.png" class="photo-about" id="photo-3">
         </div>
-
           <div class="photo-slider">
             <a href="#photo-1"></a>
             <a href="#photo-2"></a>
             <a href="#photo-3"></a>
           </div>
+          <p class="about-info">
+            Highlight Karya Kami
+          </p>
       </div>
 
       <div class="about-text">
